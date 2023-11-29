@@ -5,34 +5,34 @@
  * This program motors, turn 90 degrees once within 10cm of an object
 */
 
-// variables
-let distanceFromObject: number = 0
+let distanceToObject: number = 0
 
-// on start
+// setup
 basic.showIcon(IconNames.Happy)
 
-// loop forever
 while (true) {
   if (input.buttonIsPressed(Button.A) == true) {
-  // finding distance from object
-  distanceFromObject = sonar.ping(
-    DigitalPin.P1,
-    DigitalPin.P2,
-    PingUnit.Centimeters
-  )
-  basic.showIcon(IconNames.Happy)
-
-  // if within 10cm of an object
-  if (distanceFromObject <= 10)
-      robotbit.StepperTurn(robotbit.Steppers.M1, robotbit.Turns.T1B2)
-      robotbit.StepperTurn(robotbit.Steppers.M2, robotbit.Turns.T1B2)
-      robotbit.StpCarMove(10, 48)
-      robotbit.StpCarMove(-10, 48)
-
-    // turning motor 180 degrees
-    basic.showIcon(IconNames.Yes)
-      robotbit.StepperTurn(robotbit.Steppers.M1, robotbit.Turns.T1B0)
-      robotbit.StepperTurn(robotbit.Steppers.M2, robotbit.Turns.T1B0)
-      basic.showIcon(IconNames.Happy)
-}
+    // finding distance with sonar
+    basic.clearScreen()
+    basic.clearScreen()
+    distanceToObject = sonar.ping(
+        DigitalPin.P1,
+        DigitalPin.P2,
+        PingUnit.Centimeters
+    )
+    basic.showNumber(distanceToObject)
+    basic.pause(500)
+    basic.showIcon(IconNames.Happy)
+    // if distance more than 10cm
+    if (distanceToObject >= 10) {
+        robotbit.StpCarMove(10, 48)
+    }
+    // if distance is less than 10cm
+    if (distanceToObject < 10) {
+        robotbit.StepperTurn(robotbit.Steppers.M1, robotbit.Turns.T1B4)
+        robotbit.StepperTurn(robotbit.Steppers.M2, robotbit.Turns.T1B4)
+        basic.pause(500)
+        robotbit.StpCarMove(10, 48)
+    }
+  }
 }
