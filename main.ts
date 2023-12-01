@@ -19,18 +19,22 @@ while (true) {
         DigitalPin.P2,
         PingUnit.Centimeters
     )
+    basic.showNumber(distanceToObject)
+    basic.showString("cm")
     basic.showIcon(IconNames.Happy)
+
     // if distance is less than 10cm
-      if (distanceToObject <= 10) 
-        robotbit.StpCarTurn(90, 48, 125)
-        robotbit.StpCarMove(10, 48)
+      if (distanceToObject > 10) {
+      robotbit.StepperTurn(robotbit.Steppers.M1, robotbit.Turns.T1B4)
+      robotbit.StepperTurn(robotbit.Steppers.M2, robotbit.Turns.T1B4)
+      robotbit.StpCarMove(10, 48)
 
       } else { 
 
       // if distance is more than 10cm
-      (distanceToObject > 10) 
-      robotbit.StepperTurn(robotbit.Steppers.M1, robotbit.Turns.T1B4)
-      robotbit.StepperTurn(robotbit.Steppers.M2, robotbit.Turns.T1B4)
+      (distanceToObject <= 10)
+      robotbit.StpCarTurn(90, 48, 125)
       robotbit.StpCarMove(10, 48)
       }
- }
+  }
+}
