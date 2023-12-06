@@ -11,7 +11,7 @@ let distanceFromObject: number = 0
 basic.showIcon(IconNames.Happy)
 
 while (true) {
-  if (input.buttonIsPressed(Button.A) === true) {
+  if (input.buttonIsPressed(Button.A) == true) {
     basic.clearScreen()
     while (true) {
         // find distance with sonar
@@ -38,5 +38,5 @@ while (true) {
             robotbit.StpCarMove(10, 48)
         }
     }
-}
+  }
 }
