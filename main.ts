@@ -16,23 +16,23 @@ while (true) {
     while (true) {
       // find distance with sonar
       distanceFromObject = sonar.ping(
-          DigitalPin.P1,
-          DigitalPin.P2,
-          PingUnit.Centimeters
+        DigitalPin.P1,
+        DigitalPin.P2,
+        PingUnit.Centimeters
       )
       basic.showNumber(distanceFromObject)
-      basic.showString("cm")
+      basic.showString('cm')
       basic.pause(500)
       basic.showIcon(IconNames.Happy)
 
-       if (distanceFromObject < 10) {
-          robotbit.StpCarTurn(90, 48, 125)
-          basic.pause(500)
-          robotbit.StpCarMove(10, 48)
+      if (distanceFromObject < 10) {
+        robotbit.StpCarTurn(90, 48, 125)
+        basic.pause(500)
+        robotbit.StpCarMove(10, 48)
 
       } else {
 
-          robotbit.StpCarMove(10, 48)
+        robotbit.StpCarMove(10, 48)
       }
     }
   }
