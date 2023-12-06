@@ -25,11 +25,7 @@ while (true) {
         basic.showIcon(IconNames.Happy)
 
         if (distanceFromObject < 10) {
-            robotbit.StpCarMove(-10, 48)
-            basic.pause(500)
-            robotbit.StepperTurn(robotbit.Steppers.M1, robotbit.Turns.T1B4)
-            basic.pause(500)
-            robotbit.StepperTurn(robotbit.Steppers.M2, robotbit.Turns.T1B4)
+            robotbit.StpCarTurn(90, 48, 125)
             basic.pause(500)
             robotbit.StpCarMove(10, 48)
 
