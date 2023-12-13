@@ -1,4 +1,4 @@
-0/* Copyright (c) 2020 MTHS All rights reserved
+/* Copyright (c) 2020 MTHS All rights reserved
  *
  * Created by: Daki A.B
  * Created on: Nov 2023
@@ -25,15 +25,16 @@ while (true) {
       basic.pause(500)
       basic.showIcon(IconNames.Happy)
 
+      // turning 90 degrees
       if (distanceFromObject < 10) {
         robotbit.StpCarTurn(90, 48, 125)
-        basic.pause(500)
-        robotbit.StpCarMove(10, 48)
+          basic.pause(500)
+          robotbit.StpCarMove(10, 48)
 
-      } else {
-
-        robotbit.StpCarMove(10, 48)
-      }
+        } else {
+        // continue moving 10 cm before checking distance from objects 
+          robotbit.StpCarMove(10, 48)
+        }
     }
   }
 }
