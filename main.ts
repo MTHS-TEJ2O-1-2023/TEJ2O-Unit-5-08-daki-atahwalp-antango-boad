@@ -28,13 +28,13 @@ while (true) {
       // turning 90 degrees
       if (distanceFromObject < 10) {
         robotbit.StpCarTurn(90, 48, 125)
-          basic.pause(500)
-          robotbit.StpCarMove(10, 48)
+        basic.pause(500)
+        robotbit.StpCarMove(10,48)
 
-        } else {
-        // continue moving 10 cm before checking distance from objects 
-          robotbit.StpCarMove(10, 48)
-        }
+      } else {
+        // continue moving 10 cm before checking distance from objects
+        robotbit.StpCarMove(10, 48)
+      }
     }
   }
 }
