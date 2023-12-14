@@ -5,6 +5,7 @@
  * This program motors, turn 90 degrees once within 10cm of an object
 */
 
+// variables
 let distanceFromObject: number = 0
 
 // setup
